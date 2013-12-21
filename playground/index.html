@@ -18,7 +18,7 @@
     
     <!-- Javascripts -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="libraries/frameworks/uikit/js/uikit.min.js"></script>
+    <script src="../libraries/frameworks/uikit/js/uikit.min.js"></script>
      <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
       <script type='text/javascript' src="https://public.opencpu.org/js/archive/opencpu-0.4.js"></script>
       <script type='text/javascript' src="http://slidify.github.io/ile/libraries/widgets/interactive/js/ace/js/ace.js"></script>
@@ -82,6 +82,15 @@
       <input id="checkSlave" type="checkbox" ng-model="preview">
      </div>
     </li>
+    <li>
+      <button id='download' class='uk-button' 
+        style="margin-left:5px;margin-top:5px;display:none">
+       <a download='slides.html' ng-href='{{dnlink}}'>
+        <i class="uk-icon uk-icon-download"></i> 
+        Download
+        </a>
+      </button>
+    </li>
   </ul>
     </nav>
         <div class="uk-grid">
@@ -120,7 +129,6 @@ myApp.controller('MainCtrl', function($scope, $http){
       $scope.examples = JSON.parse($scope.files['examples.json'].content)
       $scope.example = $scope.examples[0]
       $scope.exampleCode = $scope.files[$scope.example.file].content
-      consol.log($scope.exampleCode)
     })
   })
   // $scope.examples = ['Example 1', 'Example 2']
@@ -132,10 +140,15 @@ myApp.controller('MainCtrl', function($scope, $http){
    }
    
    $scope.slidifyText = function(){
+     $("#download").hide()
      var req = ocpu.call("slidify_text", {
        text : $scope.exampleCode
      }, function(session){
-        $("#output").attr('src', session.getFileURL("output.html"));     
+        $("#output").attr('src', session.getFileURL("output.html"))
+        $scope.$apply(function(){
+         $scope.dnlink = session.getLoc() + "files/output.html"
+        })
+        $("#download").show()
      }).fail(function(text){
         alert("Error: " + req.responseText);
      });
@@ -150,7 +163,8 @@ myApp.controller('MainCtrl', function($scope, $http){
    
    $scope.$watch('example', function(newExample){
      $scope.exampleCode = $scope.files[newExample.file].content
-     $("#output").attr('src', '')
+       $("#download").hide()
+       $("#output").attr('src', '')
    })
    
    // _.debounce($scope.slidifyText(), 3000)
