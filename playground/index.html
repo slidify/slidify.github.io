@@ -119,19 +119,17 @@ function getGist(id, callback){
 
 
 myApp.controller('MainCtrl', function($scope, $http){  
-  
-  
-  
+ 
   $scope.preview = true
-  getGist(8070363, function(result){
-    $scope.$apply(function(){
-      $scope.files = result.files
-      $scope.examples = JSON.parse($scope.files['examples.json'].content)
-      $scope.example = $scope.examples[0]
-      $scope.exampleCode = $scope.files[$scope.example.file].content
-    })
+  $http({
+    method: 'jsonp',
+    url: "https://api.github.com/gists/" + 8070363 + "?callback=JSON_CALLBACK"
+  }).success(function(result){
+    $scope.files = result.data.files
+    $scope.examples = JSON.parse($scope.files['examples.json'].content)
+    $scope.example = $scope.examples[0]
+    $scope.exampleCode = $scope.files[$scope.example.file].content
   })
-  // $scope.examples = ['Example 1', 'Example 2']
   
    $scope.aceOptions = {
      theme: 'solarized_light',
