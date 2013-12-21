@@ -1,0 +1,76 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700);
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro);
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
+
+/* Solarized Color Scheme for Navbar */
+.uk-navbar {
+    background-color: #93a1a1;
+    color: #586e75;
+}
+.uk-navbar-nav > li.uk-active > a {
+  background-color: #b58900;
+  color: white;
+}
+.uk-navbar-nav > li > a {
+  color: #586e75;
+}
+
+#main {
+   margin-top: 40px; 
+}
+.tm-nav > li > a {
+  color: #777;
+  font-family:"Source Sans Pro";
+  font-weight: 300;
+}
+.tm-nav > li li > a {
+  color: #777;
+  font-family:"Source Sans Pro";
+  font-weight: 300;
+  margin-left: 5px;
+}
+.tm-nav .uk-nav-header {
+  color: #222;
+  font-weight: 400;
+  font-family:"Montserrat", "Source Sans Pro";
+}
+.uk-navbar {
+  padding-left: 60px;
+  padding-right: 60px;
+}
+#main-article {
+  border-left: 1px solid #E5E5E5;
+}
+.uk-tab-right .uk-active {
+  border-right: 3px solid #ba5d0f;
+}
+
+#article .uk-grid {
+  margin-top: 40px;
+}
+
+p {
+font-size: 16px;
+line-height: 24px;
+text-align: justify;
+font-weight: 300;
+font-family:  "Source Sans Pro", "Montserrat" ;
+  color: #222;
+}
+pre {
+background: transparent;
+border: none;
+padding: 0px;
+}
+pre > code {
+font-family: "Source Code Pro";
+padding: 15px;
+font-size: 14px;
+}
+.uk-table thead {
+font-family: "Source Sans Pro";
+font-weight: 400;
+}
+.highlight {
+background-color: #FFFF88;
+}

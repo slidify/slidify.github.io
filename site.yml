@@ -1,0 +1,20 @@
+navbar:
+    - {item: Home, href: 'index.html', icon: home, class: active}
+    - {item: "Start", href: 'start.html', icon: signin}
+    - {item: Create, href: 'create.html', icon: pencil}
+    - {item: Customize, href: style, icon: "hand-right", 
+        dropdown: true, menu: [
+         {item: Frameworks, href: 'frameworks.html', icon: ""},
+         {item: Widgets, href: 'widgets.html', icon: ""},
+         {item: Layouts, href: 'layouts.html', icon: ""}
+        ]
+      }
+    - {item: Share, href: "share.html", icon: gift}
+    - {item: Tutorials, href: "tutorials/index.html", icon: "gallery",  
+        dropdown: true, menu: [
+         {item: "Tutorial 1", href: 'tutorials/index.html', icon: ""},
+         {item: "Tutorial 2", href: 'tutorials/index.html', icon: ""},
+         {item: "Tutorial 3", href: 'tutorials/index.html', icon: ""}
+        ]
+      }
+logo: {big: "img/slidify_logo_big.png"}

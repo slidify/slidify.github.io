@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Slidify</title>
+    <link rel="icon" 
+      type="image/png" 
+      href="assets/img/slidify_logo_small.png">
+    
+    <!-- Stylesheets-->
+    <link rel="stylesheet" href="libraries/frameworks/uikit/css/uikit.min.css" />
+    <link rel="stylesheet" href="http://getuikit.com/docs/css/docs.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="libraries/frameworks/uikit/css/index.css">
+    <link rel="stylesheet" href="libraries/frameworks/uikit/css/jumbotron.css">
+    <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/solarized_dark.css">
+    
+    
+    <!-- Javascripts -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="assets/js/jquery.fitvids.js"></script>
+    <script src="libraries/frameworks/uikit/js/uikit.min.js"></script>
+        
+
+    <script src="assets/js/jquery.liveType.min.js"></script>
+
+  </head>
+  
+  <body>
+
+    <nav class="uk-navbar">
+      <ul class="uk-navbar-nav">
+        <a class="uk-navbar-brand uk-hidden-small" href="../index.html">
+          <img class="uk-margin uk-margin-remove" src="assets/img/slidify_logo_big.png" width="75" height="20" title="siteLogo" alt="siteLogo">
+        </a>
+        <li class="uk-active" 
+        >
+      <a href="index.html">
+         
+        <i class='uk-icon-home'> </i>Home
+      </a>
+    </li>
+    <li  
+        >
+      <a href="/start">
+         
+        <i class='uk-icon-signin'> </i>Start
+      </a>
+    </li>
+    <li  
+        >
+      <a href="/playground">
+         
+        <i class='uk-icon-pencil'> </i>Play
+      </a>
+    </li>
+    <li  
+         data-uk-dropdown="{mode:'click'}" >
+      <a href="style">
+        <i class='uk-icon-hand-right'> </i>Customize
+        <i class="uk-icon-caret-down"></i> 
+      </a>
+      <div class="uk-dropdown">
+        <ul class="uk-nav uk-nav-dropdown">
+          <li><a href="http://ramnathv.github.com/slidifyExamples/examples/io2012">Google IO2012</a></li>
+<li><a href="http://ramnathv.github.com/slidifyExamples/examples/deckjs">DeckJS</a></li>
+<li><a href="http://ramnathv.github.com/slidifyExamples/examples/revealjs">RevealJS</a></li>
+<li><a href="http://ramnathv.github.com/slidifyExamples/examples/flowtime">FlowtimeJS</a></li>
+<li><a href="http://ramnathv.github.com/slidifyExamples/examples/impressjs">ImpressJS</a></li>
+<li><a href="http://ramnathv.github.com/slidifyExamples/examples/landslide">Landslide</a></li>
+<li><a href="http://ramnathv.github.com/slidifyExamples/examples/dzslides">DZSlides</a></li>
+<li><a href="http://ramnathv.github.com/slidifyExamples/examples/shower">Shower</a></li>
+<li><a href="http://ramnathv.github.com/slidifyExamples/examples/showoff">Showoff</a></li>
+<li><a href="http://ramnathv.github.com/slidifyExamples/examples/fathomjs">FathomJS</a></li>
+<li><a href="http://ramnathv.github.com/slidifyExamples/examples/html5slides">HTML5Slides</a></li>
+<li><a href="http://ramnathv.github.com/slidifyExamples/examples/slideous">Slideous</a></li>
+        </ul>
+      </div>
+    </li>
+    <li  
+         data-uk-dropdown="{mode:'click'}" >
+      <a href="tutorials/index.html"> 
+        <i class='uk-icon-cog'> </i>Learn
+        <i class="uk-icon-caret-down"></i>
+      </a>
+      <div class="uk-dropdown">
+        <ul class="uk-nav uk-nav-dropdown">
+          <li><a href="http://slidify.github.io/workshops/">Workshop 1</a></li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+    </nav>
+        <div class="uk-grid">
+      
+      <div class="uk-width-1-1 jumbotron" id='main' style='margin-top:0px;'>
+  <div class="uk-width-medium-4-5 uk-container-center">
+    <div class="uk-grid">
+         <div class='uk-width-medium-1-2' id=''>
+
+	    <div class='' id='example' >
+	      <pre><code>---
+title: My First Presentation
+author: Ramnath Vaidyanathan
+---
+
+## Markdown Text
+
+Making my first slide deck with Slidify.
+
+1. Write text using Markdown
+2. Add properties using YAML
+3. Separate slides with `---` preceded by empty newline
+
+---
+
+```r
+require(ggplot2)
+qplot(wt, mpg, data = mtcars)
+```
+</code></pre>
+
+</div>
+
+
+<style>
+#example pre{
+  display: none;
+}
+.jumbotron {
+  min-height: 500px;
+}
+</style>
+    
+
+<script type="text/javascript">
+  $(document).ready(function(){
+     $('#example pre').show();
+     $('#example pre').liveType({
+       typeSpeed: 50
+     }); 
+  });
+</script>
+
+         </div>
+         <div class='uk-width-medium-1-2' id=''>
+
+           <h1>Slidify</h1>
+
+<p>Interactive Docs with R Markdown</p>
+
+<p><a href="/playground" class='uk-button uk-button-primary uk-button-large'>
+  <i class="uk-icon-book"> </i>Try Online
+</a></p>
+
+
+         </div>
+    </div>
+  </div>
+</div>
+<div class="uk-width-1-1" style='margin-top:30px;'>
+  <div class="uk-width-medium-4-5 uk-container-center">
+    <div class="uk-grid" id='features'>
+      <div class="uk-width-medium-1-3" id = "">
+
+        <h2><i class="uk-icon-edit"> </i> Author</h2>
+
+<p>Write content in R Markdown, mixing markdown text with knitr code chunks, and render it as an interactive web-ready HTML5 document.</p>
+
+
+        
+
+      </div>
+      <div class="uk-width-medium-1-3" id = "">
+
+        <h2><i class="uk-icon-hand-right"> </i>Customize</h2>
+
+<p>Style your document using frameworks. Structure display using layouts. Extend functionality using widgets</p>
+
+
+        
+      </div>
+      <div class="uk-width-medium-1-3" id = "">
+
+        <h2><i class="uk-icon-gift"> </i>Share</h2>
+
+<p>Publish your interactive document to RPubs with a single click, or to github and dropbox with a few lines of code.</p>
+
+
+        
+
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </body>
+  <script>
+    $(document).ready(function(){
+    // Target your .container, .wrapper, .post, etc.
+      $("#main").fitVids();
+    });
+  </script>
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  
+  
+</html>

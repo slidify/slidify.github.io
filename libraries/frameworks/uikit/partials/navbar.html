@@ -1,0 +1,26 @@
+<nav class="uk-navbar">
+  <ul class="uk-navbar-nav">
+    <a class="uk-navbar-brand uk-hidden-small" href="../index.html">
+      <img class="uk-margin uk-margin-remove" src="{{page.url.assets}}/{{site.logo.big}}" width="75" height="20" title="siteLogo" alt="siteLogo">
+    </a>
+    {{# site.navbar }}
+    <li {{# class }}class="uk-{{.}}"{{/ class }} 
+        {{# dropdown }} data-uk-dropdown="{mode:'click'}" {{ /dropdown }}>
+      <a href="{{ href }}">
+        {{# dropdown }}<i class="uk-icon-caret-down"></i>{{/ dropdown}} 
+        <i class='uk-icon-{{icon}}'> </i>{{item}}
+      </a>
+      {{# dropdown }}
+      <div class="uk-dropdown">
+        <ul class="uk-nav uk-nav-dropdown">
+          {{# menu }}
+          <li><a href="{{ href }}">{{ item }}</a></li>
+          {{/ menu }}
+        </ul>
+      </div>
+      {{/ dropdown }}
+    </li>
+    {{/ site.navbar }}
+  </ul>
+</nav>
+

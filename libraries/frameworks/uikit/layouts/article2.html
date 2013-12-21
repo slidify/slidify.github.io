@@ -1,0 +1,31 @@
+<div class="uk-container uk-container-center" id='article'>
+  <div class="uk-grid">
+    <div class="uk-width-medium-2-10">
+      {{{ slide.sidebar.html }}}
+    </div>
+    <div class='uk-width-medium-6-10' id='main-article'>
+      <div class='uk-article'>
+        <h1 class="uk-article-title">{{{ slide.title }}}</h1>
+	    <p class="uk-article-meta">
+	       <i class='uk-icon-calendar'> </i>{{{ page.date }}}
+	       {{# page.tags }}
+           <i class="uk-icon-folder-close"> </i>{{{ . }}}
+	       {{/ page.tags }}
+	       <a target="_blank" href='http://prose.io/#{{{site.github.user}}}/{{{ site.github.repo }}}/edit/gh-pages/{{{page.basename}}}.Rmd' 
+	          class='uk-icon-button uk-icon-edit' data-uk-tooltip="{pos:'bottom'}" title="Edit"></a>
+	    </p>
+	    {{# slide.blocks }}
+	    <div class='{{class}}' id='{{id}}' {{alert}}>
+	      {{{ html }}}
+		</div>
+		{{/ slide.blocks }}
+	  </div>
+    </div>
+    <div class='uk-width-medium-2-10' id='rightbar'>
+    	{{# slide.rightbar }}
+    	<div class='{{{ class }}}'>
+    		{{{ html }}}
+    	</div>
+    	{{/ slide.rightbar }}
+    </div>
+</div>

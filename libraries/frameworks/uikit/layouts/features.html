@@ -1,0 +1,15 @@
+<div class="uk-width-1-1" style='margin-top:30px;'>
+  <div class="uk-width-medium-4-5 uk-container-center">
+    <div class="uk-grid" id='features'>
+      {{# slide.blocks }}
+      <div class="{{ class }}" id = "{{ id }}">
+
+        {{{ html }}}
+
+        <a class='uk-button uk-button-success' href='{{href}}'>More</a>
+
+      </div>
+      {{/ slide.blocks }}
+    </div>
+  </div>
+</div>

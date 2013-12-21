@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Getting Started</title>
+    
+    <!-- Stylesheets-->
+    <link rel="stylesheet" href="../libraries/frameworks/uikit/css/uikit.min.css" />
+    <link rel="stylesheet" href="http://getuikit.com/docs/css/docs.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../libraries/frameworks/uikit/css/index.css">
+    <link rel="stylesheet" href="../libraries/frameworks/uikit/css/jumbotron.css">
+    <link rel="stylesheet" href="../libraries/highlighters/highlight.js/css/pojoaque.css">
+    
+    
+    <!-- Javascripts -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="../libraries/frameworks/uikit/js/uikit.min.js"></script>
+        
+
+    <script src="../assets/js/jquery.liveType.min.js"></script>
+
+  </head>
+  
+  <body>
+
+    <nav class="uk-navbar">
+      <ul class="uk-navbar-nav">
+        <a class="uk-navbar-brand uk-hidden-small" href="../index.html">
+          <img class="uk-margin uk-margin-remove" src="../assets/img/slidify_logo_big.png" width="75" height="20" title="siteLogo" alt="siteLogo">
+        </a>
+        <li 
+        >
+      <a href="/index.html">
+         
+        <i class='uk-icon-home'> </i>Home
+      </a>
+    </li>
+    <li class="uk-active" 
+        >
+      <a href="/start">
+         
+        <i class='uk-icon-signin'> </i>Start
+      </a>
+    </li>
+    <li  
+        >
+      <a href="/playground">
+         
+        <i class='uk-icon-pencil'> </i>Play
+      </a>
+    </li>
+    <li  
+         data-uk-dropdown="{mode:'click'}" >
+      <a href="style">
+        <i class='uk-icon-hand-right'> </i>Customize
+        <i class="uk-icon-caret-down"></i> 
+      </a>
+      <div class="uk-dropdown">
+        <ul class="uk-nav uk-nav-dropdown">
+         <li><a href="http://ramnathv.github.com/slidifyExamples/examples/io2012">Google IO2012</a></li>
+<li><a href="http://ramnathv.github.com/slidifyExamples/examples/deckjs">DeckJS</a></li>
+<li><a href="http://ramnathv.github.com/slidifyExamples/examples/revealjs">RevealJS</a></li>
+<li><a href="http://ramnathv.github.com/slidifyExamples/examples/flowtime">FlowtimeJS</a></li>
+<li><a href="http://ramnathv.github.com/slidifyExamples/examples/impressjs">ImpressJS</a></li>
+<li><a href="http://ramnathv.github.com/slidifyExamples/examples/landslide">Landslide</a></li>
+<li><a href="http://ramnathv.github.com/slidifyExamples/examples/dzslides">DZSlides</a></li>
+<li><a href="http://ramnathv.github.com/slidifyExamples/examples/shower">Shower</a></li>
+<li><a href="http://ramnathv.github.com/slidifyExamples/examples/showoff">Showoff</a></li>
+<li><a href="http://ramnathv.github.com/slidifyExamples/examples/fathomjs">FathomJS</a></li>
+<li><a href="http://ramnathv.github.com/slidifyExamples/examples/html5slides">HTML5Slides</a></li>
+<li><a href="http://ramnathv.github.com/slidifyExamples/examples/slideous">Slideous</a></li>
+        </ul>
+      </div>
+    </li>
+    <li  
+         data-uk-dropdown="{mode:'click'}" >
+      <a href="tutorials/index.html">
+        <i class="uk-icon-caret-down"></i> 
+        <i class='uk-icon-cog'> </i>Learn
+      </a>
+      <div class="uk-dropdown">
+        <ul class="uk-nav uk-nav-dropdown">
+          <li><a href="http://slidify.github.io/workshops/">Workshop 1</a></li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+    </nav>
+        <div class="uk-grid">
+      
+      <div class="uk-container uk-container-center" id='article'>
+  <div class="uk-grid">
+    <div class="uk-width-medium-2-10">
+      
+
+    </div>
+    <div class='uk-width-medium-6-10' id='main-article'>
+      <div class='uk-article'>
+        <h1 class="uk-article-title">Getting Started</h1>
+	    <p class="uk-article-meta">
+	       <i class='uk-icon-calendar'> </i>2013-09-14
+           <i class="uk-icon-folder-close"> </i>slidify
+           <i class="uk-icon-folder-close"> </i>interactive
+	       <a target="_blank" href='http://prose.io/#//edit/gh-pages/.Rmd' 
+	          class='uk-icon-button uk-icon-edit' data-uk-tooltip="{pos:'bottom'}" title="Edit"></a>
+	    </p>
+	    <div class='' id='' >
+	      <h2 id='install'>Install</h2>
+
+<p>Slidify is not on CRAN as yet and needs to be installed from <code>github</code>. You can use Hadley&#39;s <code>devtools</code> package to accomplish this easily. You will also need <code>slidifyLibraries</code> which contains all external libraries required by Slidify.</p>
+
+<pre><code>library(devtools)
+install_github(&#39;slidify&#39;, &#39;ramnathv&#39;)
+install_github(&#39;slidifyLibraries&#39;, &#39;ramnathv&#39;)
+</code></pre>
+
+<h2 id='author'>Author</h2>
+
+<p>This step will create a new directory <code>mydeck</code> and add the necessary scaffolding. If you have <code>git</code> installed, it will initialize it as a <code>git</code> repo, checkout its <code>gh-pages</code> branch, add and commit everything. Finally, it will open <code>index.Rmd</code> for you to edit.</p>
+
+<pre><code>author(&quot;mydeck&quot;)
+</code></pre>
+
+<p>Edit the YAML front matter (if you don&#39;t know what it is, just replace everything to the right of the <code>:</code> in the lines between the <code>---</code> right at the top). Edit the deck, making sure to separate your slides by a blank line followed by three dashes <code>---</code>. </p>
+
+<h2>Slidify</h2>
+
+<p>This step generates a html slide deck from <code>index.Rmd</code>. It is a static file, which means that you can open it in your browser locally and it should display fine.</p>
+
+<pre><code>slidify(&quot;index.Rmd&quot;)
+</code></pre>
+
+<h2>Publish</h2>
+
+<p>Now is the magical step of publishing your deck to <code>github</code>. Login with your github account and <a href="https://help.github.com/articles/creating-a-new-repository">create a new repository</a>. Note that Github will prompt you to add a README file, but just use the defaults so that your repo is empty. You will need to have <code>git</code> installed on your computer and be able to push to <code>github</code> using <a href="https://help.github.com/articles/generating-ssh-keys">SSH</a></p>
+
+<pre><code># replace USER and REPO with your username and reponame
+publish(user = &quot;USER&quot;, repo = &quot;REPO&quot;, host = &#39;github&#39;)
+</code></pre>
+
+		</div>
+	  </div>
+    </div>
+    <div class='uk-width-medium-2-10' id='rightbar'>
+    	<div class='uk-alert'>
+    		<div class="uk-alert-close uk-close"></div>
+
+<h2>Highlight</h2>
+
+<p>You can install Slidify, write a three page slide deck and publish it to Github,  all in less than 5 minutes!</p>
+
+<style>code{font-size: 14px;}</style>
+
+    	</div>
+    </div>
+</div>
+
+    </div>
+  </body>
+  <script>
+    $(document).ready(function(){
+    // Target your .container, .wrapper, .post, etc.
+      $("#main").fitVids();
+    });
+  </script>
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="../libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  
+  
+</html>

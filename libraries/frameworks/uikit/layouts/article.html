@@ -1,0 +1,13 @@
+<div class='{{{ slide.class }}}' id='{{{ slide.id }}}'>
+  <div class='uk-article'>
+    <h1 class="uk-article-title">{{{ slide.title }}}</h1>
+    {{# slide.meta }}
+    <p class="uk-article-meta">
+       {{{ slide.meta.html}}}
+       <a target="_blank" href='http://prose.io/#{{{site.github.user}}}/{{{ site.github.repo }}}/edit/gh-pages/{{{page.basename}}}.Rmd' 
+          class='uk-icon-button uk-icon-edit' data-uk-tooltip="{pos:'bottom'}" title="Edit"></a>
+    </p>
+    {{/ slide.meta }}
+    {{{ slide.content }}}
+  </div>
+</div>

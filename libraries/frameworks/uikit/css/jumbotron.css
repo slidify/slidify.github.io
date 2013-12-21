@@ -1,0 +1,59 @@
+.jumbotron {
+  padding: 30px;
+  margin-bottom: 30px;
+  font-size: 21px;
+  font-weight: 200;
+  line-height: 2.1428571435;
+  color: inherit;
+/*  background-color: #eeeeee;*/
+  background-color: #fdf6e3;
+}
+
+.jumbotron a{
+  font-size: 14px;
+  line-height: 28px;
+}
+
+.jumbotron h1 {
+  line-height: 1;
+/*  color: inherit;*/
+  color: #002b36;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+
+.jumbotron p {
+  line-height: 1.4;
+}
+
+.jumbotron .uk-article-lead {
+    font-size: 24px;
+    line-height: 36px;
+}
+
+
+.container .jumbotron {
+  border-radius: 6px;
+}
+
+#features p{
+  font-size: 16px;
+  line-height: 28px;
+}
+
+#features h1, h2 {
+   font-family: "Open Sans Condensed"; 
+}
+
+@media screen and (min-width: 768px) {
+  .jumbotron {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+  .container .jumbotron {
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+  .jumbotron h1 {
+    font-size: 54px;
+  }
+}

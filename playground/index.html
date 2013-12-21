@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>Slidify</title>
+    <link rel="icon" 
+      type="image/png" 
+      href="../assets/img/slidify_logo_small.png">
+    
+    <!-- Stylesheets-->
+    <link rel="stylesheet" href="../libraries/frameworks/uikit/css/uikit.min.css" />
+    <link rel="stylesheet" href="http://getuikit.com/docs/css/docs.css" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../libraries/frameworks/uikit/css/index.css">
+    <link rel="stylesheet" href="../libraries/frameworks/uikit/css/jumbotron.css">
+    <link rel="stylesheet" href="../libraries/highlighters/highlight.js/css/solarized_dark.css">
+
+    
+    <!-- Javascripts -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="libraries/frameworks/uikit/js/uikit.min.js"></script>
+     <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
+      <script type='text/javascript' src="https://public.opencpu.org/js/archive/opencpu-0.4.js"></script>
+      <script type='text/javascript' src="http://slidify.github.io/ile/libraries/widgets/interactive/js/ace/js/ace.js"></script>
+      <script type='text/javascript' src="http://angular-ui.github.io/ui-ace/build/ui-ace.js"></script>
+    <script type='text/javascript' src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+
+<style type='text/css'>
+#editor { 
+  position: absolute;
+  top: 40px;
+  left: 0px;
+  width: 400px;
+  height: 95%;
+}
+
+#output { 
+  position: absolute;
+  top: 40px;
+  right: 0px;
+  width: 1030px;
+  height: 95%;
+  border: 0;
+  margin: 0;
+  z-index: 10;
+}
+
+  </style>
+
+  </head>
+  
+  <body ng-app="myApp" ng-controller='MainCtrl'>
+
+    <nav class="uk-navbar">
+      <ul class="uk-navbar-nav">
+        <a class="uk-navbar-brand uk-hidden-small" href="../index.html">
+          <img class="uk-margin uk-margin-remove" src="../assets/img/slidify_logo_big.png" width="75" height="20" title="siteLogo" alt="siteLogo">
+        </a>
+     <li 
+        >
+      <a href="/index.html">
+         
+        <i class='uk-icon-home'> </i>Home
+      </a>
+    </li>
+    <li>
+      <form class='uk-form'>
+      <select ng-model='example' ng-options='example.title for example in examples'
+        style='margin-left:5px; margin-top:5px;'></select>
+      </form>
+    </li>
+    <li>
+         <button href="#" class='uk-button uk-button-danger' 
+          style='margin-left:5px; margin-top:5px; margin-right:5px;' ng-click='slidifyText()'>
+           Submit
+          </button>
+    </li>
+    <li>
+      <div class='uk-button uk-button-success' 
+        style='margin-left:5px; margin-top:5px; margin-right:5px;'>
+      Instant Preview
+      <input id="checkSlave" type="checkbox" ng-model="preview">
+     </div>
+    </li>
+  </ul>
+    </nav>
+        <div class="uk-grid">
+  <div id='editor' ng-model='exampleCode' ui-ace="aceOptions">{{ exampleCode }}
+  </div><br/>
+   <iframe id='output' seamless scrolling = "no" frameborder = "0"
+         allowTransparency = "true">
+   </iframe>
+
+<script type='text/javascript'>
+
+ocpu.seturl("//public.opencpu.org/ocpu/github/ramnathv/slidify/R")
+
+
+var lodash = angular.module('lodash', []);
+lodash.factory('_', function () {
+    return window._;
+});
+
+var myApp = angular.module('myApp', ['ui.ace', 'lodash'])
+
+function getGist(id, callback){
+  $.getJSON("https://api.github.com/gists/" + id).success(callback)
+}
+
+
+
+myApp.controller('MainCtrl', function($scope, $http){  
+  
+  
+  
+  $scope.preview = true
+  getGist(8070363, function(result){
+    $scope.$apply(function(){
+      $scope.files = result.files
+      $scope.examples = JSON.parse($scope.files['examples.json'].content)
+      $scope.example = $scope.examples[0]
+      $scope.exampleCode = $scope.files[$scope.example.file].content
+      consol.log($scope.exampleCode)
+    })
+  })
+  // $scope.examples = ['Example 1', 'Example 2']
+  
+   $scope.aceOptions = {
+     theme: 'solarized_light',
+     mode: 'r',
+     useWrapMode : true
+   }
+   
+   $scope.slidifyText = function(){
+     var req = ocpu.call("slidify_text", {
+       text : $scope.exampleCode
+     }, function(session){
+        $("#output").attr('src', session.getFileURL("output.html"));     
+     }).fail(function(text){
+        alert("Error: " + req.responseText);
+     });
+   }
+   
+   $scope.$watch('exampleCode', _.debounce(function(newCode){
+     $scope.exampleCode = newCode
+     if ($scope.preview){
+       $scope.slidifyText()
+     }
+   }, 3000))
+   
+   $scope.$watch('example', function(newExample){
+     $scope.exampleCode = $scope.files[newExample.file].content
+     $("#output").attr('src', '')
+   })
+   
+   // _.debounce($scope.slidifyText(), 3000)
+})
+
+
+</script>
+      
+
+    </div>
+  </body>
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="../libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  
+  
+</html>

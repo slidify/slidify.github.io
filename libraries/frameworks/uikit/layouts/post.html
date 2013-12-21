@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {{> head }}
+
+    {{{ page.assets.css }}}
+
+    {{{ page.assets.jshead }}}
+  </head>
+  
+  <body>
+
+    {{> navbar }}
+    
+    <div class="uk-container uk-container-center" id='main'>
+      <div class="uk-grid">
+      
+        {{{ page.content }}}
+
+      </div>
+    </div>
+  </body>
+  <script>
+    $(document).ready(function(){
+    // Target your .container, .wrapper, .post, etc.
+      $("#main").fitVids();
+    });
+  </script>
+</html>
