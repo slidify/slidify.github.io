@@ -159,11 +159,15 @@ myApp.controller('MainCtrl', function($scope, $http){
      }
    }, 3000))
    
+   
    $scope.$watch('example', function(newExample){
-     $scope.exampleCode = $scope.files[newExample.file].content
+     if (typeof newExample != 'undefined'){
+       $scope.exampleCode = $scope.files[newExample.file].content
        $("#download").hide()
        $("#output").attr('src', '')
+     }
    })
+   
    
    // _.debounce($scope.slidifyText(), 3000)
 })
