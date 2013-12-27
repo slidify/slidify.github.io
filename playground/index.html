@@ -22,7 +22,6 @@
      <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script>
       <script type='text/javascript' src="https://public.opencpu.org/js/archive/opencpu-0.4.js"></script>
       <script type='text/javascript' src="http://slidify.github.io/ile/libraries/widgets/interactive/js/ace/js/ace.js"></script>
-      <script type='text/javascript' src="http://angular-ui.github.io/ui-ace/build/ui-ace.js"></script>
       <script type='text/javascript' src="http://angular-ui.github.io/ui-ace/dist/ui-ace.min.js"></script>
     <script type='text/javascript' src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
 
@@ -122,11 +121,8 @@ function getGist(id, callback){
 myApp.controller('MainCtrl', function($scope, $http){  
  
   $scope.preview = true
-  $http({
-    method: 'jsonp',
-    url: "https://api.github.com/gists/" + 8070363 + "?callback=JSON_CALLBACK"
-  }).success(function(result){
-    $scope.files = result.data.files
+  $http.get('/playground/examples/8070363.json').success(function(result){
+    $scope.files = result.files
     $scope.examples = JSON.parse($scope.files['examples.json'].content)
     $scope.example = $scope.examples[0]
     $scope.exampleCode = $scope.files[$scope.example.file].content
@@ -168,9 +164,6 @@ myApp.controller('MainCtrl', function($scope, $http){
        $("#output").attr('src', '')
      }
    })
-   
-   
-   // _.debounce($scope.slidifyText(), 3000)
 })
 
 
