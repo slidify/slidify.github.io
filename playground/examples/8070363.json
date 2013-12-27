@@ -1,0 +1,177 @@
+{
+  "url": "https://api.github.com/gists/8070363",
+  "forks_url": "https://api.github.com/gists/8070363/forks",
+  "commits_url": "https://api.github.com/gists/8070363/commits",
+  "id": "8070363",
+  "git_pull_url": "https://gist.github.com/8070363.git",
+  "git_push_url": "https://gist.github.com/8070363.git",
+  "html_url": "https://gist.github.com/8070363",
+  "files": {
+    "example1.Rmd": {
+      "filename": "example1.Rmd",
+      "type": "text/plain",
+      "language": "RMarkdown",
+      "raw_url": "https://gist.github.com/ramnathv/8070363/raw/2beeab7a733e7a08e4535c7a05fc5faedca26bcb/example1.Rmd",
+      "size": 913,
+      "content": "---\ntitle: Slidify Playground\nsubtitle: Adapted from OpenCPU MarkdownApp\nauthor: Ramnath Vaidyanathan\nframework: io2012\nwidgets: [mathjax]\n---\n\n## Normal Distribution\n\nThe normal (or Gaussian) distribution is defined as follows:\n\n$$latex\nf(x;\\mu,\\sigma^2) = \\frac{1}{\\sigma\\sqrt{2\\pi}} \ne^{ -\\frac{1}{2}\\left(\\frac{x-\\mu}{\\sigma}\\right)^2 }\n$$\n\n---\n\n## Density Plot\n\nTo generate random draws from a normal distribution we use the **rnorm** function:\n\n```{r block1}\noutput <- rnorm(1000, 100, 15);\n```\n\n---\n\n## Bell Shape\n\nThe normal distribution has the typical bell shape:\n\n```{r block2, fig.width=8, fig.height=5}\nlibrary(ggplot2)\nqplot(output)\n```\n\n---\n\n## Kernel density estimation\n\nWe can perform density estimation on the sample:\n\n```{r block3, fig.width=8, fig.height=5}\nplot(density(output))\n``` \n\n---\n\n## Carl Friedrich Gauß\n\nThis little guy had something to do with it\n\n!['Gauss'](http://goo.gl/ZwTTXv)"
+    },
+    "example2.Rmd": {
+      "filename": "example2.Rmd",
+      "type": "text/plain",
+      "language": "RMarkdown",
+      "raw_url": "https://gist.github.com/ramnathv/8070363/raw/5eb080d8db43717c2e3499cb3e81a3e1e606a61c/example2.Rmd",
+      "size": 931,
+      "content": "---\ntitle: Slidify Playground2\nsubtitle: Adapted from OpenCPU MarkdownApp\nauthor: Ramnath Vaidyanathan\nframework: revealjs\nwidgets: [mathjax]\n---\n \n## Normal Distribution\n \nThe normal (or Gaussian) distribution is defined as follows:\n \n$$latex\nf(x;\\mu,\\sigma^2) = \\frac{1}{\\sigma\\sqrt{2\\pi}} \ne^{ -\\frac{1}{2}\\left(\\frac{x-\\mu}{\\sigma}\\right)^2 }\n$$\n\n---\n \n## Density Plot\n \nTo generate random draws from a normal distribution we use the **rnorm** function:\n \n```{r block1}\noutput <- rnorm(1000, 100, 15);\n```\n\n---\n \n## Bell Shape\n \nThe normal distribution has the typical bell shape:\n \n```{r block2, fig.width=8, fig.height=5}\nlibrary(ggplot2)\nqplot(output)\n```\n\n---\n \n## Kernel density estimation\n \nWe can perform density estimation on the sample:\n \n```{r block3, fig.width=8, fig.height=5}\nplot(density(output))\n``` \n\n---\n \n## Carl Friedrich Gauß\n \nThis little guy had something to do with it\n \n!['Gauss'](http://goo.gl/ZwTTXv)"
+    },
+    "example3.Rmd": {
+      "filename": "example3.Rmd",
+      "type": "text/plain",
+      "language": "RMarkdown",
+      "raw_url": "https://gist.github.com/ramnathv/8070363/raw/68f30cfa0d0e5522cc00cebbc5ad578b4ae96c67/example3.Rmd",
+      "size": 2101,
+      "content": "---\ntitle: ImpressJS\nauthor: Ramnath Vaidyanathan\nframework: impressjs\ngithub: {user: ramnathv, repo: slidify}\ntwitter: {text: \"Slidify with impress.js!\"}\n--- .slide x:-1000 y:-1500\n\n<q>Aren't you just **bored** with all those slides-based presentations?</q>\n\n--- .slide x:0 y:-1500\n\n<q>Don't you think that presentations given **in modern browsers** shouldn't **copy the limits** of 'classic' slide decks?</q>\n\n--- .slide x:1000 y:-1500\n\n<q>Would you like to **impress your audience** with **stunning visualization** of your talk?</q>\n\n--- #title x:0 y:0 scale:4\n\n<span class=\"try\">then you should try</span>\n# impress.js^*\n<span class=\"footnote\">^* no rhyme intended</span>\n\n--- #its x:850 y:3000 rot:45 scale:5\n\n It's a **presentation tool** <br/>\ninspired by the idea behind [prezi.com](http://prezi.com) <br/>\nand based on the **power of CSS3 transforms and transitions** in modern browsers.\n\n--- #big x:3500 y:2100 rot:180 scale:6\n\nvisualize your <b>big</b> <span class=\"thoughts\">thoughts</span>\n\n--- #tiny x:2825 y:2325 z:-3000 rot:300 scale:1\n\nand **tiny** ideas\n\n--- #ing x:3500 y:-850 rot:270 scale:6\nby <b class=\"positioning\">positioning</b>, <b class=\"rotating\">rotating</b> and <b class=\"scaling\">scaling</b> them on an infinite canvas\n\n--- #imagination x:6700 y:-300 scale:6\n\nthe only **limit** is your <b class=\"imagination\">imagination</b>\n\n--- #source x:6300 y:2000 rot:20 scale:4\n\nwant to know more?\n\n<q>[use the source](http://github.com/bartaz/impress.js), Luke</q>\n\n--- #one-more-thing x:6000 y:4000 scale:2\n\none more thing...\n\n--- #its-in-3d x:6200 y:4300 z:-100 rotx:-40 roty:-10 scale:2\n\n<span class=\"have\">have</span> <span class=\"you\">you</span> <span class=\"noticed\">noticed</span> <span class=\"its\">it's</span> <span class=\"in\">in</span> <b>3D<sup>*</sup></b>?\n\n<span class=\"footnote\">* beat that, prezi ;)</span>\n\n--- #rstats x:-1000 y:5000\n\n```{r echo = T, eval = F}\nlibrary(ggplot2)\nqplot(wt, mpg, data = mtcars)\n```\n\n--- x:-1500 y:5500\n\n```{r echo = F, eval = T, message = F}\nopts_chunk$set(fig.path = 'assets/fig/')\nlibrary(ggplot2)\nqplot(wt, mpg, data = mtcars)\n```\n"
+    },
+    "example4.Rmd": {
+      "filename": "example4.Rmd",
+      "type": "text/plain",
+      "language": "RMarkdown",
+      "raw_url": "https://gist.github.com/ramnathv/8070363/raw/61957df17f08017376552bf6fe55bfc50ea5c41d/example4.Rmd",
+      "size": 1812,
+      "content": "---\ntitle: Shower Template for Slidify\nauthor: Ramnath Vaidyanathan\nframework: shower\n--- .cover #Cover\n\n# Shower Presentation Template\n\n![cover](http://shwr.me/pictures/cover.jpg)\n\n---\n\n## Header\n\nThis `<tool>` is provided without warranty, guarantee, or much in the way of explanation. Note that use of this tool may or may not crash your browser.\n\n[This link will be opened in the new tab](index/example.html)\n\n---\n\n## Two rows.<br/> Mighty heading\n\nThis `<tool>` is provided without warranty, guarantee, or much in the way of explanation. Note that use of this tool may or may not crash your browser.\n\n---\n\n## Unordered List\n\n- This tool is provided\n- Without warranty, guarantee\n- Or much in the way of explanation\n  1. Note that use of this tool\n  2. May or may not crash your browser\n  3. Lock up your machine\n- Erase your hard drive.\n\n---\n\n## Ordered List\n\n1. This tool is provided\n2. Without warranty, guarantee\n3. Or much in the way of explanation\n   - Note that use of this tool\n   - May or may not crash your browser\n   - Lock up your machine\n4. Erase your hard drive.\n\n--- .cover #FitToHeight\n\n## Fit to Height\n\n![height](http://shwr.me/pictures/cover.jpg)\n\n--- .cover .w #FitToWidth\n\n## Fit to Width\n\n![width](http://shwr.me/pictures/cover.jpg)\n\n---\n\n## Code Sample\n\n```r\nlibrary(ggplot2)\nqplot(wt, mpg, data = mtcars)\n```\n\n--- .shout #warning\n\n## Warning\n\n--- .shout #demo\n\n## [Demo](examples/index.html) \n\n--- #blockquote\n\n## Block Quote\n\n> This tool is provided without warranty, guarantee, or much in the way of explanation. Note that use of this tool may or may not crash your browser, lock up your machine, erase your hard drive.\n\n---\n\n## Shower Presentation Template\n\nAuthor: Vadim Makeev, Opera Software <br/>\nModified: Ramnath Vaidyanthan, for [Slidify](http://ramnathv.github.com/slidify)"
+    },
+    "example5.Rmd": {
+      "filename": "example5.Rmd",
+      "type": "text/plain",
+      "language": "RMarkdown",
+      "raw_url": "https://gist.github.com/ramnathv/8070363/raw/65fd6be28bcc4e9386ee24152b5fc419f68e9566/example5.Rmd",
+      "size": 3002,
+      "content": "---\ntitle: DeckJS\nauthor: Ramnath Vaidyanathan\nframework: deckjs\ndeckjs: {theme: web-2.0}\nhighlighter: highlight.js\nhitheme    : solarized_light\n---\n\n# Getting Started with deck.js\n\n---\n\n## How to Make a Deck\n\n1. <h3>Write Slides</h3>\n   Slide content is simple HTML.\n2. <h3>Choose Themes</h3>\n   One for slide styles and one for deck transitions.\n3. <h3>Include Extensions</h3>\n   Add extra functionality to your deck, or leave it stripped down.\n\n---\n\n## Slides are just HTML elements with a class of slide.\n\n```html\n<section class=\"slide\">\n  <h2>How to Make a Deck</h2>\n  <ol>\n    <li>\n      <h3>Write Slides</h3>\n      <p>Slide content is simple HTML.</p>\n    </li>\n    <li>\n      <h3>Choose Themes</h3>\n      <p>One for slide styles and one for deck transitions.</p>\n    </li>\n    …\n  </ol>\n</section>\n```\n\n---\n\n## Style Themes\n\nCustomizes the colors, typography, and layout of slide content.\n\n```html\n<link rel=\"stylesheet\" href=\"/path/to/css/style-theme.css\">\n```\n\n## Transition Themes\n\nDefines transitions between slides using CSS3 transitions. Less capable browsers fall back to cutaways. But you aren’t using those browsers to give your presentations, are you…\n\n```html\n<link rel=\"stylesheet\" href=\"/path/to/css/transition-theme.css\">\n```\n\n---\n\n## Extensions\n\nCore gives you basic slide functionality with left and right arrow navigation, but you may want more. Here are the ones included in this deck:\n\n> - deck.goto: Adds a shortcut key to jump to any slide number. Hit g, type in the slide number, and hit enter.\n> - deck.hash: Enables internal linking within slides, deep linking to individual slides, and updates the address bar & a permalink anchor with each slide change.\n> - deck.menu: Adds a menu view, letting you see all slides in a grid. Hit m to toggle to menu view, continue navigating your deck, and hit m to return to normal view. Touch devices can double-tap the deck to switch between views.\n> - deck.navigation: Adds clickable left and right buttons for the less keyboard inclined.\n> - deck.status: Adds a page number indicator. (current/total)\n\n<p class='slide'>Each extension folder in the download package contains the necessary JavaScript, CSS, and HTML files. For a complete list of extension modules included in deck.js, check out the documentation.</p>\n\n---\n\n## Images\n\n![Kitties](http://placekitten.com/600/375)\n\n```markdown\n![Kitties](http://placekitten.com/600/375)\n```\n\n---\n\n## Block Quotes\n\n> Food is an important part of a balanced diet\n\n> <cite>Fran Lebowitz</cite>\n\n```\n> Food is an important part of a balanced diet\n\n> <cite>Fran Lebowitz</cite>\n```\n\n---\n\n## Video Embeds\n\nEmbed videos from your favorite online video service or with an HTML5 video element\n\n<iframe width=\"400\" height=\"225\" frameborder=\"0\"\n  src=\"http://player.vimeo.com/video/1063136?title=0&amp;byline=0&amp;portrait=0\" >\n</iframe>\n\n```html\n<iframe width=\"400\" height=\"225\" frameborder=\"0\"\n  src=\"http://player.vimeo.com/video/1063136?title=0&amp;byline=0&amp;portrait=0\" >\n</iframe>"
+    },
+    "examples.json": {
+      "filename": "examples.json",
+      "type": "application/json",
+      "language": "JSON",
+      "raw_url": "https://gist.github.com/ramnathv/8070363/raw/934199f195e2a2ba52f80c0320f331bd974d2fa9/examples.json",
+      "size": 305,
+      "content": "[\n  {\"title\": \"Example 1: Google IO 2012\", \"file\": \"example1.Rmd\"},\n  {\"title\": \"Example 2: Revealjs\", \"file\": \"example2.Rmd\"},\n  {\"title\": \"Example 3: ImpressJS\", \"file\": \"example3.Rmd\"},\n  {\"title\": \"Example 4: Shower\", \"file\": \"example4.Rmd\"},\n  {\"title\": \"Example 5: DeckJS\", \"file\": \"example5.Rmd\"}\n]"
+    }
+  },
+  "public": true,
+  "created_at": "2013-12-21T14:53:27Z",
+  "updated_at": "2013-12-26T17:50:20Z",
+  "description": "",
+  "comments": 0,
+  "user": {
+    "login": "ramnathv",
+    "id": 346288,
+    "avatar_url": "https://gravatar.com/avatar/5cf92204cc3691d9a5155632012d8644?d=https%3A%2F%2Fidenticons.github.com%2Fbc2fdb4e6c08af2cedfd770ed54920a9.png&r=x",
+    "gravatar_id": "5cf92204cc3691d9a5155632012d8644",
+    "url": "https://api.github.com/users/ramnathv",
+    "html_url": "https://github.com/ramnathv",
+    "followers_url": "https://api.github.com/users/ramnathv/followers",
+    "following_url": "https://api.github.com/users/ramnathv/following{/other_user}",
+    "gists_url": "https://api.github.com/users/ramnathv/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/ramnathv/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/ramnathv/subscriptions",
+    "organizations_url": "https://api.github.com/users/ramnathv/orgs",
+    "repos_url": "https://api.github.com/users/ramnathv/repos",
+    "events_url": "https://api.github.com/users/ramnathv/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/ramnathv/received_events",
+    "type": "User",
+    "site_admin": false
+  },
+  "comments_url": "https://api.github.com/gists/8070363/comments",
+  "forks": [
+
+  ],
+  "history": [
+    {
+      "user": null,
+      "version": "14135872bef5ad922df6e8104da618c295060754",
+      "committed_at": "2013-12-26T17:50:20Z",
+      "change_status": {
+        "total": 116,
+        "additions": 115,
+        "deletions": 1
+      },
+      "url": "https://api.github.com/gists/8070363/14135872bef5ad922df6e8104da618c295060754"
+    },
+    {
+      "user": null,
+      "version": "cba1e8fc077a1c3408493cfa4f5355c5c2ebc387",
+      "committed_at": "2013-12-26T15:56:45Z",
+      "change_status": {
+        "total": 9,
+        "additions": 0,
+        "deletions": 9
+      },
+      "url": "https://api.github.com/gists/8070363/cba1e8fc077a1c3408493cfa4f5355c5c2ebc387"
+    },
+    {
+      "user": null,
+      "version": "acc52176dafac07df73e61d09710f96438994b6f",
+      "committed_at": "2013-12-26T15:56:09Z",
+      "change_status": {
+        "total": 101,
+        "additions": 100,
+        "deletions": 1
+      },
+      "url": "https://api.github.com/gists/8070363/acc52176dafac07df73e61d09710f96438994b6f"
+    },
+    {
+      "user": null,
+      "version": "4387c2a632f713aaa3935d22a0e110f315acf7b1",
+      "committed_at": "2013-12-26T15:42:26Z",
+      "change_status": {
+        "total": 3,
+        "additions": 2,
+        "deletions": 1
+      },
+      "url": "https://api.github.com/gists/8070363/4387c2a632f713aaa3935d22a0e110f315acf7b1"
+    },
+    {
+      "user": null,
+      "version": "ac70c3f82aa4fe359a38a52d25b8ae68f0c129b0",
+      "committed_at": "2013-12-26T15:42:02Z",
+      "change_status": {
+        "total": 75,
+        "additions": 75,
+        "deletions": 0
+      },
+      "url": "https://api.github.com/gists/8070363/ac70c3f82aa4fe359a38a52d25b8ae68f0c129b0"
+    },
+    {
+      "user": null,
+      "version": "74eecc33d9258b1adf3cd4e077cd6187c9242dc3",
+      "committed_at": "2013-12-21T17:09:03Z",
+      "change_status": {
+        "total": 8,
+        "additions": 4,
+        "deletions": 4
+      },
+      "url": "https://api.github.com/gists/8070363/74eecc33d9258b1adf3cd4e077cd6187c9242dc3"
+    },
+    {
+      "user": null,
+      "version": "597d18029178b42a8d23f704aec38d126a4e232e",
+      "committed_at": "2013-12-21T16:56:23Z",
+      "change_status": {
+        "total": 59,
+        "additions": 59,
+        "deletions": 0
+      },
+      "url": "https://api.github.com/gists/8070363/597d18029178b42a8d23f704aec38d126a4e232e"
+    },
+    {
+      "user": null,
+      "version": "42c1a206b3995c858b4ada02107c5cbed2909e1f",
+      "committed_at": "2013-12-21T14:53:28Z",
+      "change_status": {
+        "total": 55,
+        "additions": 55,
+        "deletions": 0
+      },
+      "url": "https://api.github.com/gists/8070363/42c1a206b3995c858b4ada02107c5cbed2909e1f"
+    }
+  ]
+}
