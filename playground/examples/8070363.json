@@ -47,18 +47,26 @@
       "size": 3002,
       "content": "---\ntitle: DeckJS\nauthor: Ramnath Vaidyanathan\nframework: deckjs\ndeckjs: {theme: web-2.0}\nhighlighter: highlight.js\nhitheme    : solarized_light\n---\n\n# Getting Started with deck.js\n\n---\n\n## How to Make a Deck\n\n1. <h3>Write Slides</h3>\n   Slide content is simple HTML.\n2. <h3>Choose Themes</h3>\n   One for slide styles and one for deck transitions.\n3. <h3>Include Extensions</h3>\n   Add extra functionality to your deck, or leave it stripped down.\n\n---\n\n## Slides are just HTML elements with a class of slide.\n\n```html\n<section class=\"slide\">\n  <h2>How to Make a Deck</h2>\n  <ol>\n    <li>\n      <h3>Write Slides</h3>\n      <p>Slide content is simple HTML.</p>\n    </li>\n    <li>\n      <h3>Choose Themes</h3>\n      <p>One for slide styles and one for deck transitions.</p>\n    </li>\n    …\n  </ol>\n</section>\n```\n\n---\n\n## Style Themes\n\nCustomizes the colors, typography, and layout of slide content.\n\n```html\n<link rel=\"stylesheet\" href=\"/path/to/css/style-theme.css\">\n```\n\n## Transition Themes\n\nDefines transitions between slides using CSS3 transitions. Less capable browsers fall back to cutaways. But you aren’t using those browsers to give your presentations, are you…\n\n```html\n<link rel=\"stylesheet\" href=\"/path/to/css/transition-theme.css\">\n```\n\n---\n\n## Extensions\n\nCore gives you basic slide functionality with left and right arrow navigation, but you may want more. Here are the ones included in this deck:\n\n> - deck.goto: Adds a shortcut key to jump to any slide number. Hit g, type in the slide number, and hit enter.\n> - deck.hash: Enables internal linking within slides, deep linking to individual slides, and updates the address bar & a permalink anchor with each slide change.\n> - deck.menu: Adds a menu view, letting you see all slides in a grid. Hit m to toggle to menu view, continue navigating your deck, and hit m to return to normal view. Touch devices can double-tap the deck to switch between views.\n> - deck.navigation: Adds clickable left and right buttons for the less keyboard inclined.\n> - deck.status: Adds a page number indicator. (current/total)\n\n<p class='slide'>Each extension folder in the download package contains the necessary JavaScript, CSS, and HTML files. For a complete list of extension modules included in deck.js, check out the documentation.</p>\n\n---\n\n## Images\n\n![Kitties](http://placekitten.com/600/375)\n\n```markdown\n![Kitties](http://placekitten.com/600/375)\n```\n\n---\n\n## Block Quotes\n\n> Food is an important part of a balanced diet\n\n> <cite>Fran Lebowitz</cite>\n\n```\n> Food is an important part of a balanced diet\n\n> <cite>Fran Lebowitz</cite>\n```\n\n---\n\n## Video Embeds\n\nEmbed videos from your favorite online video service or with an HTML5 video element\n\n<iframe width=\"400\" height=\"225\" frameborder=\"0\"\n  src=\"http://player.vimeo.com/video/1063136?title=0&amp;byline=0&amp;portrait=0\" >\n</iframe>\n\n```html\n<iframe width=\"400\" height=\"225\" frameborder=\"0\"\n  src=\"http://player.vimeo.com/video/1063136?title=0&amp;byline=0&amp;portrait=0\" >\n</iframe>"
     },
+    "example6.Rmd": {
+      "filename": "example6.Rmd",
+      "type": "text/plain",
+      "language": "RMarkdown",
+      "raw_url": "https://gist.github.com/ramnathv/8070363/raw/4cbd57fba10eb6e8a067cecc2a0a3cb628769f78/example6.Rmd",
+      "size": 2412,
+      "content": "---\ntitle: rCharts NVD3 Tutorial\nauthor: Ramnath Vaidyanathan\ndate: \"2014-01-14\"\nframework: bootstrap\nhitheme: twitter-bootstrap\nhighlighter: prettify\n---\n\n## NVD3 Plots using rCharts\n\nThis is a short tutorial on how to use NVD3 with rCharts. The source for this tutorial can be found [here](https://gist.github.com/ramnathv/8070363#file-example6-rmd)\n\n```{r setup, tidy = F, cache = F, echo = F}\nlibrary(rCharts)\noptions(\n  rcharts.mode = 'iframesrc', \n  rcharts.cdn = TRUE,\n  RCHART_WIDTH = 700,\n  RCHART_HEIGHT = 400\n)\nlibrary(knitr)\nopts_chunk$set(tidy = F, results = 'asis', comment = NA)\n```\n\n\n### Scatter Chart\n\n```{r}\np1 <- nPlot(mpg ~ wt, group = 'cyl', data = mtcars, type = 'scatterChart')\np1$xAxis(axisLabel = 'Weight')\np1$show(cdn = TRUE)\n```\n\n\n### Multibar Chart\n\n```{r}\nhair_eye = as.data.frame(HairEyeColor)\np2 <- nPlot(Freq ~ Hair, group = 'Eye', \n  data = subset(hair_eye, Sex == \"Female\"), \n  type = 'multiBarChart'\n)\np2$chart(color = c('brown', 'blue', '#594c26', 'green'))\np2$show(cdn = TRUE)\n```\n\n\n### Multibar Horizontal Chart\n\n```{r}\np3 <- nPlot(~ cyl, group = 'gear', data = mtcars, type = 'multiBarHorizontalChart')\np3$chart(showControls = F)\np3$show(cdn = TRUE)\n```\n\n### Pie Chart\n\n```{r}\np4 <- nPlot(~ cyl, data = mtcars, type = 'pieChart')\np4$show(cdn = TRUE)\n```\n\n### Donut Chart\n\n```{r}\np5 <- nPlot(~ cyl, data = mtcars, type = 'pieChart')\np5$chart(donut = TRUE)\np5$show(cdn = TRUE)\n```\n\n### Line Chart\n\n```{r}\ndata(economics, package = 'ggplot2')\np6 <- nPlot(uempmed ~ date, data = economics, type = 'lineChart')\np6$show(cdn = TRUE)\n```\n\n### Line with Focus Chart\n\n```{r}\necm <- reshape2::melt(\n  economics[,c('date', 'uempmed', 'psavert')], \n  id = 'date'\n)\np7 <- nPlot(value ~ date, group = 'variable', \n  data = ecm, \n  type = 'lineWithFocusChart'\n)\np7$show(cdn = TRUE)\n```\n\n### Stacked Area Chart\n\n```{r}\ndat <- data.frame(\n  t = rep(0:23, each = 4), \n  var = rep(LETTERS[1:4], 4), \n  val = round(runif(4*24,0,50))\n)\np8 <- nPlot(val ~ t, group =  'var', data = dat, \n type = 'stackedAreaChart', id = 'chart'\n)\np8$show(cdn = TRUE)\n```\n\n### Multi Chart\n\n```{r}\np12 <- nPlot(value ~ date, group = 'variable', data = ecm, type = 'multiChart')\np12$set(multi = list(\n  uempmed = list(type=\"area\", yAxis=1),\n  psavert = list(type=\"line\", yAxis=2)\n))\np12$setTemplate(script = system.file(\n  \"/libraries/nvd3/layouts/multiChart.html\",\n  package = \"rCharts\"\n))\np12$show(cdn = TRUE)\n```\n"
+    },
     "examples.json": {
       "filename": "examples.json",
       "type": "application/json",
       "language": "JSON",
-      "raw_url": "https://gist.github.com/ramnathv/8070363/raw/934199f195e2a2ba52f80c0320f331bd974d2fa9/examples.json",
-      "size": 305,
-      "content": "[\n  {\"title\": \"Example 1: Google IO 2012\", \"file\": \"example1.Rmd\"},\n  {\"title\": \"Example 2: Revealjs\", \"file\": \"example2.Rmd\"},\n  {\"title\": \"Example 3: ImpressJS\", \"file\": \"example3.Rmd\"},\n  {\"title\": \"Example 4: Shower\", \"file\": \"example4.Rmd\"},\n  {\"title\": \"Example 5: DeckJS\", \"file\": \"example5.Rmd\"}\n]"
+      "raw_url": "https://gist.github.com/ramnathv/8070363/raw/3f56d3b766036324fbf49530a58b4500465c6566/examples.json",
+      "size": 381,
+      "content": "[\n  {\"title\": \"Example 1: Google IO 2012\", \"file\": \"example1.Rmd\"},\n  {\"title\": \"Example 2: Revealjs\", \"file\": \"example2.Rmd\"},\n  {\"title\": \"Example 3: ImpressJS\", \"file\": \"example3.Rmd\"},\n  {\"title\": \"Example 4: Shower\", \"file\": \"example4.Rmd\"},\n  {\"title\": \"Example 5: DeckJS\", \"file\": \"example5.Rmd\"},\n  {\"title\": \"Example 6: NVD3 Plots using rCharts\", \"file\": \"example6.Rmd\"}\n]"
     }
   },
   "public": true,
   "created_at": "2013-12-21T14:53:27Z",
-  "updated_at": "2013-12-26T17:50:20Z",
+  "updated_at": "2014-01-16T21:53:34Z",
   "description": "",
   "comments": 0,
   "user": {
@@ -85,6 +93,61 @@
 
   ],
   "history": [
+    {
+      "user": null,
+      "version": "81c300a9434f30d26857410e92f79dd6e7c8b8fc",
+      "committed_at": "2014-01-16T21:53:34Z",
+      "change_status": {
+        "total": 22,
+        "additions": 11,
+        "deletions": 11
+      },
+      "url": "https://api.github.com/gists/8070363/81c300a9434f30d26857410e92f79dd6e7c8b8fc"
+    },
+    {
+      "user": null,
+      "version": "a12f44596c7e3b0293eda14d7e633ca8e7035954",
+      "committed_at": "2014-01-16T21:52:10Z",
+      "change_status": {
+        "total": 4,
+        "additions": 2,
+        "deletions": 2
+      },
+      "url": "https://api.github.com/gists/8070363/a12f44596c7e3b0293eda14d7e633ca8e7035954"
+    },
+    {
+      "user": null,
+      "version": "64233c1a68dba6f86ad0acb73725034f43769d37",
+      "committed_at": "2014-01-16T20:59:55Z",
+      "change_status": {
+        "total": 19,
+        "additions": 8,
+        "deletions": 11
+      },
+      "url": "https://api.github.com/gists/8070363/64233c1a68dba6f86ad0acb73725034f43769d37"
+    },
+    {
+      "user": null,
+      "version": "a219c71b7ca025276c48fd7eda39c16133587ba1",
+      "committed_at": "2014-01-16T20:45:20Z",
+      "change_status": {
+        "total": 2,
+        "additions": 1,
+        "deletions": 1
+      },
+      "url": "https://api.github.com/gists/8070363/a219c71b7ca025276c48fd7eda39c16133587ba1"
+    },
+    {
+      "user": null,
+      "version": "6427f29b0305f5399a6bd2f84caf2cb0203f6104",
+      "committed_at": "2014-01-16T20:38:59Z",
+      "change_status": {
+        "total": 125,
+        "additions": 125,
+        "deletions": 0
+      },
+      "url": "https://api.github.com/gists/8070363/6427f29b0305f5399a6bd2f84caf2cb0203f6104"
+    },
     {
       "user": null,
       "version": "14135872bef5ad922df6e8104da618c295060754",
@@ -145,9 +208,7 @@
       "version": "74eecc33d9258b1adf3cd4e077cd6187c9242dc3",
       "committed_at": "2013-12-21T17:09:03Z",
       "change_status": {
-        "total": 8,
-        "additions": 4,
-        "deletions": 4
+
       },
       "url": "https://api.github.com/gists/8070363/74eecc33d9258b1adf3cd4e077cd6187c9242dc3"
     },
@@ -156,9 +217,7 @@
       "version": "597d18029178b42a8d23f704aec38d126a4e232e",
       "committed_at": "2013-12-21T16:56:23Z",
       "change_status": {
-        "total": 59,
-        "additions": 59,
-        "deletions": 0
+
       },
       "url": "https://api.github.com/gists/8070363/597d18029178b42a8d23f704aec38d126a4e232e"
     },
@@ -167,9 +226,7 @@
       "version": "42c1a206b3995c858b4ada02107c5cbed2909e1f",
       "committed_at": "2013-12-21T14:53:28Z",
       "change_status": {
-        "total": 55,
-        "additions": 55,
-        "deletions": 0
+
       },
       "url": "https://api.github.com/gists/8070363/42c1a206b3995c858b4ada02107c5cbed2909e1f"
     }

@@ -110,7 +110,11 @@ lodash.factory('_', function () {
     return window._;
 });
 
-var myApp = angular.module('myApp', ['ui.ace', 'lodash'])
+var myApp = angular.module('myApp', ['ui.ace', 'lodash'], 
+  function($locationProvider){
+    $locationProvider.html5Mode(true);
+  }
+)
 
 function getGist(id, callback){
   $.getJSON("https://api.github.com/gists/" + id).success(callback)
@@ -118,13 +122,19 @@ function getGist(id, callback){
 
 
 
-myApp.controller('MainCtrl', function($scope, $http){  
- 
-  $scope.preview = true
-  $http.get('/playground/examples/8070363.json').success(function(result){
+myApp.controller('MainCtrl', function($scope, $http, $location){  
+  $scope.n = function(){
+    return $location.search()['n'] || 0
+  }
+  // console.log($location.search())
+  $scope.preview = false
+  $http({
+    method: 'get',
+    url: '/playground/examples/8070363.json'
+  }).success(function(result){
     $scope.files = result.files
     $scope.examples = JSON.parse($scope.files['examples.json'].content)
-    $scope.example = $scope.examples[0]
+    $scope.example = $scope.examples[$scope.n()]
     $scope.exampleCode = $scope.files[$scope.example.file].content
   })
   
