@@ -127,7 +127,7 @@ myApp.controller('MainCtrl', function($scope, $http, $location){
     return $location.search()['n'] || 0
   }
   // console.log($location.search())
-  $scope.preview = false
+  $scope.preview = true
   $http({
     method: 'get',
     url: '/playground/examples/8070363.json'
